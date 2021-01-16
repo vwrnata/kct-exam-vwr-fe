@@ -1,10 +1,12 @@
 import { createStore } from 'vuex'
 
-import breedsModule from './modules/breeds/index.js';
+import breedsStore from './modules/breeds/index.js';
+import favoritesStore from './modules/favorites/index.js';
 
 const store = createStore({
   modules: {
-    breeds: breedsModule,
+    breeds: breedsStore,
+    favorites: favoritesStore
   },
   state() {
   },

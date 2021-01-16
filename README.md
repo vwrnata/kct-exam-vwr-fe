@@ -5,9 +5,10 @@ Testovací aplikace Wrnata - frontend
 @TODO
 
 ## Build Setup
-#requires nodejs version v12
+requires nodejs version v12
 
-#please check $ node --version
+please check
+$ node --version
 
 ``` bash
 # install dependencies

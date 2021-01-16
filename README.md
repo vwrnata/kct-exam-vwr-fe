@@ -9,6 +9,8 @@ Backend data endpoint "http://localhost:9080/kcte/rest/v1/" is set in
 /src/store/modules/favoritess/actions.js BASE_BE_URL
 
 ## Build Setup
+Last production version is in master branch
+
 Requires nodejs version v12
 
 Please check your nodejs version

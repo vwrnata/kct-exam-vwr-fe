@@ -5,7 +5,7 @@ Testovací aplikace Wrnata - frontend
 Remote data endpoint "https://api.thecatapi.com/v1/" is set in
 /src/store/modules/breeds/actions.js BASE_REMOTE_URL
 
-Backend data endpoint "http://localhost:9080/kcte/rest/v1/" is set in 
+Backend data endpoint eg. "http://localhost:9080/kcte/rest/v1/" is set in 
 /src/store/modules/favoritess/actions.js BASE_BE_URL
 
 ## Build Setup

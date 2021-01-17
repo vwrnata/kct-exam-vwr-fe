@@ -7,17 +7,17 @@ export default {
   state() {
     return {
       favorites: [
-        {
-          id: '123456as',
-          name: 'item.name',
-          description: 'item.description',
-          origin: 'item.origin',
-          image: {
-            width: 0,
-            height: 0,
-            imgUrl: 'http://url',
-          },
-        }
+        // {
+        //   id: '123456as',
+        //   name: 'item.name',
+        //   description: 'item.description',
+        //   origin: 'item.origin',
+        //   image: {
+        //     width: 0,
+        //     height: 0,
+        //     imgUrl: 'http://url',
+        //   },
+        // }
       ]
     };
   },

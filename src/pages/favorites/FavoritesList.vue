@@ -35,6 +35,8 @@ export default {
       return this.$store.getters['favorites/hasFavorites'];
     },
     favorites() {
+      console.log('favorites()');
+      console.log(this.$store.getters['favorites/favorites']);
      return this.$store.getters['favorites/favorites'];
     },
   },

@@ -28,20 +28,11 @@ export default {
       // console.log(JSON.stringify(item));
       const item = responseData[key];
       // console.log(item);
-      let image = {};
-      if (item.image) {
-        image = {
-          width: item.image.width,
-          height: item.image.height,
-          imgUrl: item.image.url,
-        };
-      } else {
-        image = {
-          width: 0,
-          height: 0,
-          imgUrl: "",
-        };
-      }
+      const image = {
+        width: item.width,
+        height: item.height,
+        imgUrl: item.url,
+      };
       const breed = {
         id: item.id,
         name: item.name,
@@ -64,27 +55,61 @@ export default {
       width: breed.image.width,
       height: breed.image.height,
       url: breed.image.imgUrl,
-    }
-    console.log(addedBreed);
+    };
+    // console.log(addedBreed);
     /**@TODO axis POST */
     const options = {
       headers: {
         "Content-Type": "application/json",
       },
     };
-    const response = await axios.post(BASE_BE_URL + "favorites", addedBreed, options);
+    const response = await axios.post(
+      BASE_BE_URL + "favorites",
+      addedBreed,
+      options
+    );
 
-    console.log(response);
-
-    console.log("addFavorite:" + JSON.stringify(payload.id));
-    console.log(context.rootGetters["breeds/breeds"]);
-    context.commit("addToFavorites", addedBreed);
+    // console.log(response);
+    if (response.status !== 200) {
+      console.log(
+        "Chyba při přidávání plemena id: " +
+          addedBreed.id +
+          ", " +
+          response.statusText
+      );
+    } else {
+      const image = {
+        width: addedBreed.width,
+        height: addedBreed.height,
+        imgUrl: addedBreed.url,
+      };
+      const breed = {
+        id: addedBreed.id,
+        name: addedBreed.name,
+        description: addedBreed.description,
+        origin: addedBreed.origin,
+        image: image,
+      };
+      context.commit("addToFavorites", breed);
+    }
+    // console.log("addFavorite:" + JSON.stringify(payload.id));
+    // console.log(context.rootGetters["breeds/breeds"]);
   },
   async removeFavorite(context, payload) {
     console.log("removeFavorite:" + JSON.stringify(payload.id));
-    /**@TODO axis DELETE */
-    const response = await axios.delete(BASE_BE_URL + "favorites/" + payload.id);
-    console.log(response);
-    context.commit("removeFromFavorites", payload);
+    const response = await axios.delete(
+      BASE_BE_URL + "favorites/" + payload.id
+    );
+    // console.log(response);
+    if (response.status !== 200) {
+      console.log(
+        "Chyba při odebírání plemena id: " +
+          payload.id +
+          ", " +
+          response.statusText
+      );
+    } else {
+      context.commit("removeFromFavorites", payload);
+    }
   },
 };

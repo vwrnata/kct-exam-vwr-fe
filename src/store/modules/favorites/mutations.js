@@ -10,6 +10,7 @@ export default {
   },
   /**V payload je ID plemena */
   removeFromFavorites(state, payload) {
-    state.favorites = state.favorites.filter(fav => fav.id !== payload);
+    console.log('Mutation removeFromFavorites:' + JSON.stringify(payload));
+    state.favorites = state.favorites.filter(fav => fav.id !== payload.id);
   }
 };

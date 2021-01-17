@@ -1,16 +1,19 @@
 import axios from "axios";
 
+/**Adresa BE endpointu */
+const BASE_BE_URL = "http://localhost:9080/kcte/rest/v1/";
+
 export default {
   /**@TODO axis GET*/
   async loadFavorites(context) {
     //, payload
-    const response = await axios.get("https://api.thecatapi.com/v1/breeds", {
-      headers: {
-        "x-api-key": "fcdaf76d-921a-4de3-9329-61251bd4c7cf",
-      },
+    const response = await axios.get(BASE_BE_URL + "favorites", {
+      // headers: {
+      //   "x-api-key": "fcdaf76d-921a-4de3-9329-61251bd4c7cf",
+      // },
     });
 
-    // console.log(response);
+    console.log(response);
     // const responseJson = await response.json();
 
     if (response.status !== 200) {
@@ -50,12 +53,38 @@ export default {
     }
     context.commit("setFavorites", breeds);
   },
-  addFavorite(context, payload) {
+  async addFavorite(context, payload) {
+    const breeds = context.rootGetters["breeds/breeds"];
+    const breed = breeds.filter((breed) => breed.id == payload.id)[0];
+    const addedBreed = {
+      id: breed.id,
+      name: breed.name,
+      description: breed.description,
+      origin: breed.origin,
+      width: breed.image.width,
+      height: breed.image.height,
+      url: breed.image.imgUrl,
+    }
+    console.log(addedBreed);
     /**@TODO axis POST */
-    context.commit("addToFavorites", payload);
+    const options = {
+      headers: {
+        "Content-Type": "application/json",
+      },
+    };
+    const response = await axios.post(BASE_BE_URL + "favorites", addedBreed, options);
+
+    console.log(response);
+
+    console.log("addFavorite:" + JSON.stringify(payload.id));
+    console.log(context.rootGetters["breeds/breeds"]);
+    context.commit("addToFavorites", addedBreed);
   },
-  removeFavorite(context, payload) {
+  async removeFavorite(context, payload) {
+    console.log("removeFavorite:" + JSON.stringify(payload.id));
     /**@TODO axis DELETE */
+    const response = await axios.delete(BASE_BE_URL + "favorites/" + payload.id);
+    console.log(response);
     context.commit("removeFromFavorites", payload);
   },
 };

@@ -1,6 +1,7 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
 import Home from '../pages/Home.vue';
 import Breeds from '../pages/breeds/BreedsList.vue';
+import Favorites from '../pages/favorites/FavoritesList.vue';
 
 import NotFound from '../pages/NotFound.vue';
 
@@ -14,6 +15,11 @@ const routes = [
     path: '/breeds',
     name: 'Breeds',
     component: Breeds
+  },
+  {
+    path: '/favorites',
+    name: 'Favorites',
+    component: Favorites
   },
   { path: '/:notFound(.*)', component: NotFound }
   // {

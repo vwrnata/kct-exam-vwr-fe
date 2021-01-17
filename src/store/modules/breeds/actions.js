@@ -1,9 +1,12 @@
 import axios from "axios";
 
+const BASE_REMOTE_URL = "https://api.thecatapi.com/v1/";
+const BREEDS_ENDPOINT = "breeds";
+
 export default {
   async loadBreeds(context) {
     //, payload
-    const response = await axios.get("https://api.thecatapi.com/v1/breeds", {
+    const response = await axios.get(BASE_REMOTE_URL + BREEDS_ENDPOINT, {
       headers: {
         "x-api-key": "fcdaf76d-921a-4de3-9329-61251bd4c7cf",
       },

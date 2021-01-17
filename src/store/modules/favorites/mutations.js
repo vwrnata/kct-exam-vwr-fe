@@ -5,6 +5,7 @@ export default {
   },
   /**V payload je ID plemena */
   addToFavorites(state, payload) {
+    console.log('Mutation addToFavorites:' + JSON.stringify(payload));
     state.favorites.push(payload);
   },
   /**V payload je ID plemena */

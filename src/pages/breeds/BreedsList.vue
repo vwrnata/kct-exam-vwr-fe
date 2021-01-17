@@ -1,6 +1,15 @@
 <template>
   <div>
-    <table>
+    <table id="breeds">
+      <thead>
+        <tr>
+          <th>ID plemena</th>
+          <th>Název plemena</th>
+          <th>Země původu</th>
+          <th>Obrázek</th>
+          <th>&nbsp;</th>
+        </tr>
+      </thead>
       <tbody v-if="hasBreeds">
         <breed-item
           v-for="breed in breeds"
@@ -13,7 +22,7 @@
         ></breed-item>
       </tbody>
       <tr v-else>
-        Žádná plemena nebyla nalezena!
+        <td colspan="5">Žádná plemena nebyla nalezena!</td>
       </tr>
     </table>
   </div>
@@ -54,4 +63,28 @@ export default {
   },
 };
 </script>
-<style scoped></style>
+<style scoped>
+#breeds {
+  margin-top: 15px;
+  border-collapse: collapse;
+  width: 100%;
+}
+#breeds th {
+  border: 1px solid #ddd;
+}
+
+#breeds tr:nth-child(even){
+  background-color: #f2f2f2;
+}
+#breeds tr:hover {
+  background-color: #ddd;
+}
+
+#breeds th {
+  padding: 8px;
+  background-color: #31a741;
+  color: white;
+}
+
+
+</style>

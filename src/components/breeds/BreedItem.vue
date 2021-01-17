@@ -26,3 +26,24 @@ export default {
   }
 };
 </script>
+<style scoped>
+#breeds td {
+  border: 1px solid #ddd;
+}
+
+#breeds a{
+  text-decoration: none;
+  color: black;
+  padding: 0.75rem 1.5rem;
+}
+
+#breeds a:active,
+#breeds a:visited{
+  color: black;
+}
+
+#breeds a:hover{
+  text-decoration: underline;
+  color: black;
+}
+</style>

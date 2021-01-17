@@ -1,22 +1,22 @@
 <template>
   <the-header></the-header>
-  <router-view/>
-  <the-footer></the-footer>
+  <router-view />
+  <!-- <the-footer></the-footer> -->
 </template>
 
 <script>
-import TheHeader from './components/layout/TheHeader.vue';
-import TheFooter from './components/layout/TheFooter.vue';
+import TheHeader from "./components/layout/TheHeader.vue";
+// import TheFooter from './components/layout/TheFooter.vue';
 
 export default {
   components: {
     TheHeader,
-    TheFooter
-  }  
-}
+    // TheFooter
+  },
+};
 </script>
 
-<style lang="scss">
+<style>
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -27,14 +27,9 @@ export default {
 
 #nav {
   padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
+}
+#nav a {
+  font-weight: bold;
+  color: #2c3e50;
 }
 </style>

@@ -26,3 +26,24 @@ export default {
   }
 };
 </script>
+<style scoped>
+#favorites td {
+  border: 1px solid #ddd;
+}
+
+#favorites a{
+  text-decoration: none;
+  color: black;
+  padding: 0.75rem 1.5rem;
+}
+
+#favorites a:active,
+#favorites a:visited{
+  color: black;
+}
+
+#favorites a:hover{
+  text-decoration: underline;
+  color: black;
+}
+</style>

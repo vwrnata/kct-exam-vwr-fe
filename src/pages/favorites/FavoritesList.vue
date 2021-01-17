@@ -1,6 +1,15 @@
 <template>
   <div>
-    <table>
+    <table id="favorites">
+      <thead>
+        <tr>
+          <th>ID plemena</th>
+          <th>Název plemena</th>
+          <th>Země původu</th>
+          <th>Obrázek</th>
+          <th>&nbsp;</th>
+        </tr>
+      </thead>
       <tbody v-if="hasFavorites">
         <favorite-item
           v-for="favorite in favorites"
@@ -13,7 +22,7 @@
         ></favorite-item>
       </tbody>
       <tr v-else>
-        Žádné oblíbené plemeno nebylo nalezeno!
+        <td colspan="5">Žádné oblíbené plemeno nebylo nalezeno!</td>
       </tr>
     </table>
   </div>
@@ -56,4 +65,29 @@ export default {
   },
 };
 </script>
-<style scoped></style>
+<style scoped>
+#favorites {
+  margin-top: 15px;
+  border-collapse: collapse;
+  width: 100%;
+}
+#favorites th {
+  border: 1px solid #ddd;
+}
+
+#favorites tr:nth-child(even){
+  background-color: #f2f2f2;
+}
+#favorites tr:hover {
+  background-color: #ddd;
+}
+
+#favorites th {
+  padding: 8px;
+  background-color: #31a741;
+  color: white;
+}
+
+
+</style>
+
